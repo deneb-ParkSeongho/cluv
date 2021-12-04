@@ -41,7 +41,7 @@ class OrderServiceTest {
 
     public Item saveItem(){
         Item item = new Item();
-        item.setItemNm("테스트 상품");
+        item.setItemNm("");
         item.setPrice(10000);
         item.setItemDetail("테스트 상품 상세 설명");
         item.setItemSellStatus(ItemSellStatus.SELL);
@@ -63,7 +63,7 @@ class OrderServiceTest {
         Member member = saveMember();
 
         OrderDto orderDto = new OrderDto();
-        orderDto.setCount(10);
+        orderDto.setCount(10000);
         orderDto.setItemId(item.getId());
 
         Long orderId = orderService.order(orderDto, member.getEmail());

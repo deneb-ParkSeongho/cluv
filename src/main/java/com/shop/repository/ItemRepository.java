@@ -39,32 +39,4 @@ public interface ItemRepository extends JpaRepository<Item, Long>,
             "%:itemDetail% order by i.price desc", nativeQuery = true)
     List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
 
-//    @Query(value = "select i.item_id, i.item_nm, i.item_detail, img.img_url, i.price from (select * from it1661.item where item_sell_status = 'SELL') i " +
-//            "join it1661.order_item oi on oi.item_id " +
-//            "join it1661.item_img img on img.item_id " +
-//            "where date_format(oi.reg_time,'%Y%m%d') = date_format(now(),'%Y%m%d') " +
-//            "group by i.item_id " +
-//            "order by count(oi.order_id) desc"
-//            , nativeQuery = true
-//            ,countQuery = "SELECT COUNT(*) FROM (select i.item_id, i.item_nm, i.item_detail, img.img_url, i.price from (select * from it1661.item where item_sell_status = 'SELL') i " +
-//                        "join it1661.order_item oi on oi.item_id " +
-//                        "join it1661.item_img img on img.item_id " +
-//                        "where date_format(oi.reg_time,'%Y%m%d') = date_format(now(),'%Y%m%d') " +
-//                        "group by i.item_id " +
-//                        "order by count(oi.order_id))")
-//    Page<MainItemDto> getBestItemPage(Pageable pageable);
-
-    @Query(value = "select i.item_id, i.item_nm, i.item_detail, img.img_url, i.price from (select * from it1661.item where item_sell_status = 'SELL') i " +
-            "join it1661.order_item oi on oi.item_id " +
-            "join it1661.item_img img on img.item_id " +
-            "group by i.item_id " +
-            "order by count(oi.order_id) desc"
-            , nativeQuery = true
-            ,countQuery = "SELECT COUNT(*) FROM (select i.item_id, i.item_nm, i.item_detail, img.img_url, i.price from (select * from it1661.item where item_sell_status = 'SELL') i " +
-            "join it1661.order_item oi on oi.item_id " +
-            "join it1661.item_img img on img.item_id " +
-            "group by i.item_id " +
-            "order by count(oi.order_id))")
-    Page<MainItemDto> getBestItemPage(Pageable pageable);
-
 }

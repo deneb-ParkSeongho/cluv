@@ -120,19 +120,5 @@ public class ItemController {
         return "item/itemDtl";
     }
 
-    @GetMapping(value = {"/item/bestItem", "/item/bestItem/{page}"})
-    public String bestItem(@PathVariable("page") Optional<Integer> page, Model model) {
-
-        List<OrderItemDto> items = itemService.getTermItem();
-        System.out.println(items.toString());
-//        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
-////        Page<MainItemDto> items = itemService.getBestItemPage(itemSearchDto, pageable);
-//        Page<MainItemDto> items = itemService.getBestItemPage(pageable);
-//
-//        model.addAttribute("items", items);
-//        model.addAttribute("maxPage", 5);
-
-        return "item/bestItem";
-    }
 
 }

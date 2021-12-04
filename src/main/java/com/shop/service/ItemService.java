@@ -96,26 +96,4 @@ public class ItemService {
         return itemRepository.getMainItemPage(itemSearchDto, pageable);
     }
 
-//    @Transactional(readOnly = true)
-//    public Page<MainItemDto> getBestItemPage(ItemSearchDto itemSearchDto,Pageable pageable) {
-//        return itemRepository.getBestItemPage(itemSearchDto,pageable);
-//    }
-
-    @Transactional(readOnly = true)
-    public Page<MainItemDto> getBestItemPage(Pageable pageable) {
-        return itemRepository.getBestItemPage(pageable);
-    }
-
-    public List<OrderItemDto> getTermItem(){
-        List<OrderItemDto> items = itemRepository.findByRegTime(today());
-
-        return items;
-    }
-
-    private String today(){
-        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMdd");
-        Calendar time = Calendar.getInstance();
-        return format1.format(time.getTime());
-    }
-
 }
