@@ -48,22 +48,19 @@
                 var password = $('#password')
                 var passwordCheck = $('#passwordCheck')
                 var address = $('#address')
+
                 if (name.val()=='') {
                     insertValidMessage(name, '이름을 입력하세요.');
-                    event.preventDefault();
                 }else if(email.val() == ''){
                     insertValidMessage(email, '이메일을 입력하세요.');
-                    event.preventDefault();
                 }else if (password.val()){
                     insertValidMessage(password, '비밀번호를 입력하세요.');
-                    event.preventDefault();
                 }else if (passwordCheck.val()){
                     insertValidMessage(passwordCheck, '비밀번호 확인을 진행하세요.');
-                    event.preventDefault();
                 }else if (address.val()){
                     insertValidMessage(address, '이메일을 입력하세요.');
-                    event.preventDefault();
                 }
+                event.preventDefault();
             });
 
         });
